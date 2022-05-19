@@ -1,4 +1,4 @@
-TREEROOT	= ../../../../../
+TREEROOT	= /data/f-of-e-tools
 include $(TREEROOT)/tools/sunflower/conf/setup.conf
 
 TARGET-ARCH	= riscv32-elf
@@ -10,7 +10,7 @@ INIT		= init
 INIT-SF		= init-sf
 
 OPTFLAGS	= -O0
-CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall 
+CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall
 ASFLAGS		= --march=rv32i --mabi=ilp32
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld
 LDFLAGS-SF	= -Ttext $(LOADADDR-SF)  -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map
@@ -38,7 +38,6 @@ $(PROGRAM).sr:$(PROGRAM)
 
 $(PROGRAM).o: $(PROGRAM).c Makefile
 	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
-
 
 $(INIT-SF).o: $(INIT-SF).S
 	$(CPP) $(INIT-SF).S > $(INIT-SF).i; $(AS) $(ASFLAGS) $(INIT-SF).i -o $(INIT-SF).o
