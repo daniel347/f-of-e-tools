@@ -88,7 +88,7 @@ module top (led);
 
 	instruction_memory inst_mem( 
 		.addr(inst_in), 
-		.out(inst_out)
+		.out(inst_out),
 	);
 
 	data_mem data_mem_inst(
