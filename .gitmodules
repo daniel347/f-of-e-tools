@@ -7,6 +7,7 @@
 [submodule "verilog/hardware/processor/sail-core"]
 	path = verilog/hardware/processor/sail-core
 	url = ../../daniel347/Sail-RV32I-common
+	branch = MakeInstructionMemoryRam
 [submodule "tools/srec2hex"]
 	path = tools/srec2hex
 	url = ../../physical-computation/srec2hex.git
@@ -22,3 +23,5 @@
 [submodule "icestorm"]
 	path = tools/icestorm
 	url = ../../cliffordwolf/icestorm.git
+[submodule "Sail-RV32I-common"]
+	branch = TestBranch
