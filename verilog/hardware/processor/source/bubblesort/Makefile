@@ -8,9 +8,10 @@ PROGRAM		= bubblesort
 PROGRAM-SF	= bubblesort-sf
 INIT		= init
 INIT-SF		= init-sf
+BUILD_ASM_OPT   =   # -S -fverbose-asm
 
 OPTFLAGS	= -O0
-CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall -S -fverbose-asm
+CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall $(BUILD_ASM_OPT)
 ASFLAGS		= --march=rv32i --mabi=ilp32
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld
 LDFLAGS-SF	= -Ttext $(LOADADDR-SF)  -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map

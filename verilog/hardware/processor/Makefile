@@ -1,8 +1,8 @@
 DESIGN	= sail
 
 sail-nextpnr:
-	cp programs/data.hex sail-core-modified/verilog/
-	cp programs/program.hex sail-core-modified/verilog/
+	cp programs/data.hex sail-core/verilog/
+	cp programs/program.hex sail-core/verilog/
 	yosys -q ../../../yscripts/$(DESIGN).ys
 	nextpnr-ice40 --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc
 	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
