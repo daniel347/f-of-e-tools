@@ -26,7 +26,7 @@ OBJS-SF		=\
 		$(INIT-SF).o\
 		$(PROGRAM).o\
 
-all:	$(PROGRAM) $(PROGRAM).sr $(PROGRAM-SF) $(PROGRAM-SF).sr Makefile
+all:	$(PROGRAM) $(PROGRAM).sr Makefile # $(PROGRAM-SF) $(PROGRAM-SF).sr Makefile
 
 $(INIT).o: $(INIT).S
 	$(AS) $(ASFLAGS) $(INIT).S -o $(INIT).o
@@ -41,14 +41,14 @@ $(PROGRAM).o: $(PROGRAM).c Makefile
 	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
 
 
-$(INIT-SF).o: $(INIT-SF).S
-	$(CPP) $(INIT-SF).S > $(INIT-SF).i; $(AS) $(ASFLAGS) $(INIT-SF).i -o $(INIT-SF).o
+# $(INIT-SF).o: $(INIT-SF).S
+# 	$(CPP) $(INIT-SF).S > $(INIT-SF).i; $(AS) $(ASFLAGS) $(INIT-SF).i -o $(INIT-SF).o
 
-$(PROGRAM-SF): $(OBJS-SF)
-	$(LD) $(LDFLAGS-SF) $(OBJS-SF) -o $@ -lc -lgcc -lgloss
+# $(PROGRAM-SF): $(OBJS-SF)
+# 	$(LD) $(LDFLAGS-SF) $(OBJS-SF) -o $@ -lc -lgcc -lgloss
 
-$(PROGRAM-SF).sr:$(PROGRAM-SF)
-	$(OBJCOPY) -O srec $(PROGRAM-SF) $@
+# $(PROGRAM-SF).sr:$(PROGRAM-SF)
+# 	$(OBJCOPY) -O srec $(PROGRAM-SF) $@
 
 install: all
 	$(SREC2HEX) -b 1024 $(PROGRAM).sr

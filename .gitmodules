@@ -23,3 +23,5 @@
 [submodule "icestorm"]
 	path = tools/icestorm
 	url = ../../cliffordwolf/icestorm.git
+[submodule "Sail-RV32I-common"]
+	branch = DataMemoryModifications
