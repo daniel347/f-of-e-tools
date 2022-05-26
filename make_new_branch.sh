@@ -1,4 +1,5 @@
-if [ $# -ne 1 ] then
+if [ $# -ne 1 ]
+then
 	echo "Makes a new branch in the main respositiory and the sail-core subrepository"
 	echo "Usage: make_new_branch.sh <branch_name>"
 fi
