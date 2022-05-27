@@ -40,7 +40,6 @@ $(PROGRAM).sr:$(PROGRAM)
 $(PROGRAM).o: $(PROGRAM).c Makefile
 	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
 
-
 # $(INIT-SF).o: $(INIT-SF).S
 # 	$(CPP) $(INIT-SF).S > $(INIT-SF).i; $(AS) $(ASFLAGS) $(INIT-SF).i -o $(INIT-SF).o
 
