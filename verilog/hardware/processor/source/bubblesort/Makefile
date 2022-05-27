@@ -8,7 +8,7 @@ PROGRAM		= bubblesort
 PROGRAM-SF	= bubblesort-sf
 INIT		= init
 INIT-SF		= init-sf
-BUILD_ASM_OPT   =   # -S -fverbose-asm
+BUILD_ASM_OPT   =  -S -fverbose-asm
 
 OPTFLAGS	= -O0
 CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall $(BUILD_ASM_OPT)
@@ -51,7 +51,7 @@ $(PROGRAM).o: $(PROGRAM).c Makefile
 # 	$(OBJCOPY) -O srec $(PROGRAM-SF) $@
 
 install: all
-	$(SREC2HEX) -b 1024 $(PROGRAM).sr
+	$(SREC2HEX) -b 4096 $(PROGRAM).sr
 	cp program.hex ../../programs
 	cp data.hex ../../programs
 
