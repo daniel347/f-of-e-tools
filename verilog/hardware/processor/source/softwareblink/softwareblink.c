@@ -1,4 +1,4 @@
-const int kSpinDelay = 4000000;
+const int kSpinDelay = 400000;
 
 /*
  *  *      Reading from the special address 0x2000 will cause sail to
