@@ -42,11 +42,13 @@
  */
 
 module top (led);
-	output [7:0]	led;
-
+	output		led;
 	wire		clk_proc;
 	wire		data_clk_stall;
 	
+/*	wire            clk_buf;
+*	wire            lock;
+	wire		clkHF; */
 	wire		clk;
 	reg		ENCLKHF		= 1'b1;	// Plock enable
 	reg		CLKHF_POWERUP	= 1'b1;	// Power up the HFOSC circuit
@@ -61,6 +63,13 @@ module top (led);
 		.CLKHF(clk)
 	);
 
+/*        pll pll_inst(clkHF,clk,lock);
+
+        SB_GB #() stall_buf (.USER_SIGNAL_TO_GLOBAL_BUFFER(clk_buf),
+                        .GLOBAL_BUFFER_OUTPUT(clk_proc)
+	
+	);	
+*/
 	/*
 	 *	Memory interface
 	 */
@@ -73,7 +82,7 @@ module top (led);
 	wire		data_memread;
 	wire[3:0]	data_sign_mask;
 
-
+	
 	cpu processor(
 		.clk(clk_proc),
 		.inst_mem_in(inst_in),
@@ -88,7 +97,7 @@ module top (led);
 
 	instruction_memory inst_mem( 
 		.addr(inst_in), 
-		.out(inst_out),
+		.out(inst_out)
 	);
 
 	data_mem data_mem_inst(
@@ -101,7 +110,8 @@ module top (led);
 			.sign_mask(data_sign_mask),
 			.led(led),
 			.clk_stall(data_clk_stall)
-		);
+	);
 
 	assign clk_proc = (data_clk_stall) ? 1'b1 : clk;
+
 endmodule
