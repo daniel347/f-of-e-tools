@@ -6,7 +6,7 @@ const int kSpinDelay = 4000000;
  *    *      to the address. See the PCF file for how those 8 pins are
  *     *      mapped.
  *      */
-volatile unsigned int *gDebugLedsMemoryMappedRegister = (unsigned int *)0x2000;
+volatile unsigned int *gDebugLedsMemoryMappedRegister = (unsigned int *)0x8006000;
 
 int
 main(void)
