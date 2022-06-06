@@ -1,0 +1,350 @@
+Archive member included to satisfy reference by file (symbol)
+
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+                              bubblesort_correct.o (memcpy)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x8004000
+LOAD init-sf.o
+LOAD bubblesort_correct.o
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
+                [!provide]                        PROVIDE (__executable_start, SEGMENT_START ("text-segment", 0x10000))
+                0x0000000000010074                . = (SEGMENT_START ("text-segment", 0x10000) + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rela.dyn       0x0000000000010074        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ .rela.text     0x0000000000010074        0x0 bubblesort_correct.o
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end, .)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000008004000      0x334
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000008004000        0x0 init-sf.o
+ .text          0x0000000008004000      0x218 bubblesort_correct.o
+                0x0000000008004000                swap
+                0x000000000800404c                bubbleSort
+                0x000000000800411c                main
+ .text          0x0000000008004218      0x11c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+                0x0000000008004218                memcpy
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata         0x0000000008004334       0x78
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0000000008004334       0x78 bubblesort_correct.o
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x00000000080053ac                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x00000000080053ac        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x00000000080053ac        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x00000000080053ac        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+                0x00000000080053ac                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x00000000080053ac        0x0
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00000000080053ac        0x0 init-sf.o
+ .data          0x00000000080053ac        0x0 bubblesort_correct.o
+ .data          0x00000000080053ac        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.data1
+ *(.data1)
+
+.got
+ *(.got.plt)
+ *(.igot.plt)
+ *(.got)
+ *(.igot)
+
+.sdata          0x00000000080053ac        0x4
+                0x0000000008005bac                __global_pointer$ = (. + 0x800)
+ *(.srodata.cst16)
+ *(.srodata.cst8)
+ *(.srodata.cst4)
+ *(.srodata.cst2)
+ *(.srodata .srodata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x00000000080053ac        0x4 bubblesort_correct.o
+                0x00000000080053ac                gDebugLedsMemoryMappedRegister
+                0x00000000080053b0                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x00000000080053b0                . = .
+                0x00000000080053b0                __bss_start = .
+
+.sbss
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+
+.bss            0x00000000080053b0        0x0
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000080053b0        0x0 init-sf.o
+ .bss           0x00000000080053b0        0x0 bubblesort_correct.o
+ .bss           0x00000000080053b0        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+ *(COMMON)
+                0x00000000080053b0                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00000000080053b0                . = ALIGN (0x4)
+                0x00000000080053b0                . = SEGMENT_START ("ldata-segment", .)
+                0x00000000080053b0                . = ALIGN (0x4)
+                0x00000000080053b0                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x00000000080053b0                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 bubblesort_correct.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000      0xae6
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0xae6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_abbrev   0x0000000000000000      0x25e
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x25e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_line     0x0000000000000000      0x50d
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x50d /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_frame    0x0000000000000000       0x20
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_str      0x0000000000000000      0x52c
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x52c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+                                        0x58f (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x280
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x280 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000       0x28
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x28 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(bench-sf elf32-littleriscv)
