@@ -4,8 +4,8 @@ include $(TREEROOT)/tools/sunflower/conf/setup.conf
 TARGET-ARCH	= riscv32-elf
 TARGET		= riscv
 
-PROGRAM		= bench
-PROGRAM-SF	= bench-sf
+PROGRAM		= bubblesort_correct
+PROGRAM-SF	= bubblesort_correct-sf
 INIT		= init
 INIT-SF		= init-sf
 

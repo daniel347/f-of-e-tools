@@ -25,7 +25,7 @@ void bubbleSort(int arr[], int n)
 
 int main()
 {
-        int j,count = 0;
+        int j,c,count = 0;
 	int correct[] = {9, 11, 12, 20, 22, 25, 34, 64, 80, 90, 94, 99, 121, 124, 144};
         while (1){
                 int arr[] = {20, 80, 9, 64, 34, 25, 12, 22, 11, 90, 121, 124,  94,  99, 144};
@@ -40,10 +40,17 @@ int main()
                 }
 		if (count == n){
 			count = 0;
-			*gDebugLedsMemoryMappedRegister = 0xFF;
+			c++;
+			if (c==1) *gDebugLedsMemoryMappedRegister = 0xFF;
+			if (c == 100)
+				*gDebugLedsMemoryMappedRegister = 0x00;
+			if (c == 200)
+				c = 0;
+				
 		}
 		else{
 			count = 0;
+			c = 0;
 			*gDebugLedsMemoryMappedRegister = 0x00;
 
 		}

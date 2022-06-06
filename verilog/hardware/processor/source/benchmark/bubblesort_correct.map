@@ -79,19 +79,19 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
 .iplt
  *(.iplt)
 
-.text           0x0000000008004000      0x334
+.text           0x0000000008004000      0x378
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x0000000008004000        0x0 init-sf.o
- .text          0x0000000008004000      0x218 bubblesort_correct.o
+ .text          0x0000000008004000      0x25c bubblesort_correct.o
                 0x0000000008004000                swap
                 0x000000000800404c                bubbleSort
                 0x000000000800411c                main
- .text          0x0000000008004218      0x11c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
-                0x0000000008004218                memcpy
+ .text          0x000000000800425c      0x11c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+                0x000000000800425c                memcpy
  *(.gnu.warning)
 
 .fini
@@ -100,9 +100,9 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
                 [!provide]                        PROVIDE (_etext, .)
                 [!provide]                        PROVIDE (etext, .)
 
-.rodata         0x0000000008004334       0x78
+.rodata         0x0000000008004378       0x78
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x0000000008004334       0x78 bubblesort_correct.o
+ .rodata        0x0000000008004378       0x78 bubblesort_correct.o
 
 .rodata1
  *(.rodata1)
@@ -129,7 +129,7 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x00000000080053ac                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+                0x00000000080053f0                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
 
 .eh_frame
  *(.eh_frame)
@@ -151,18 +151,18 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x00000000080053ac        0x0
+.preinit_array  0x00000000080053f0        0x0
                 [!provide]                        PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00000000080053ac        0x0
+.init_array     0x00000000080053f0        0x0
                 [!provide]                        PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*) SORT(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end, .)
 
-.fini_array     0x00000000080053ac        0x0
+.fini_array     0x00000000080053f0        0x0
                 [!provide]                        PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*) SORT(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -191,13 +191,13 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
 
 .dynamic
  *(.dynamic)
-                0x00000000080053ac                . = DATA_SEGMENT_RELRO_END (., 0x0)
+                0x00000000080053f0                . = DATA_SEGMENT_RELRO_END (., 0x0)
 
-.data           0x00000000080053ac        0x0
+.data           0x00000000080053f0        0x0
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000080053ac        0x0 init-sf.o
- .data          0x00000000080053ac        0x0 bubblesort_correct.o
- .data          0x00000000080053ac        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+ .data          0x00000000080053f0        0x0 init-sf.o
+ .data          0x00000000080053f0        0x0 bubblesort_correct.o
+ .data          0x00000000080053f0        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
 
 .data1
  *(.data1)
@@ -208,40 +208,40 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
  *(.got)
  *(.igot)
 
-.sdata          0x00000000080053ac        0x4
-                0x0000000008005bac                __global_pointer$ = (. + 0x800)
+.sdata          0x00000000080053f0        0x4
+                0x0000000008005bf0                __global_pointer$ = (. + 0x800)
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
  *(.srodata.cst2)
  *(.srodata .srodata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000080053ac        0x4 bubblesort_correct.o
-                0x00000000080053ac                gDebugLedsMemoryMappedRegister
-                0x00000000080053b0                _edata = .
+ .sdata         0x00000000080053f0        0x4 bubblesort_correct.o
+                0x00000000080053f0                gDebugLedsMemoryMappedRegister
+                0x00000000080053f4                _edata = .
                 [!provide]                        PROVIDE (edata, .)
-                0x00000000080053b0                . = .
-                0x00000000080053b0                __bss_start = .
+                0x00000000080053f4                . = .
+                0x00000000080053f4                __bss_start = .
 
 .sbss
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  *(.scommon)
 
-.bss            0x00000000080053b0        0x0
+.bss            0x00000000080053f4        0x0
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00000000080053b0        0x0 init-sf.o
- .bss           0x00000000080053b0        0x0 bubblesort_correct.o
- .bss           0x00000000080053b0        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
+ .bss           0x00000000080053f4        0x0 init-sf.o
+ .bss           0x00000000080053f4        0x0 bubblesort_correct.o
+ .bss           0x00000000080053f4        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-memcpy.o)
  *(COMMON)
-                0x00000000080053b0                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x00000000080053b0                . = ALIGN (0x4)
-                0x00000000080053b0                . = SEGMENT_START ("ldata-segment", .)
-                0x00000000080053b0                . = ALIGN (0x4)
-                0x00000000080053b0                _end = .
+                0x00000000080053f4                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00000000080053f4                . = ALIGN (0x4)
+                0x00000000080053f4                . = SEGMENT_START ("ldata-segment", .)
+                0x00000000080053f4                . = ALIGN (0x4)
+                0x00000000080053f4                _end = .
                 [!provide]                        PROVIDE (end, .)
-                0x00000000080053b0                . = DATA_SEGMENT_END (.)
+                0x00000000080053f4                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -347,4 +347,4 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
  *(.note.GNU-stack)
  *(.gnu_debuglink)
  *(.gnu.lto_*)
-OUTPUT(bench-sf elf32-littleriscv)
+OUTPUT(bubblesort_correct-sf elf32-littleriscv)
