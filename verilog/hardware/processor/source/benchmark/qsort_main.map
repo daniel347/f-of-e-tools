@@ -1,0 +1,86 @@
+Archive member included to satisfy reference by file (symbol)
+
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+                              qsort_main.o (__eqdf2)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000     0x1000
+                0x0000000000000000                _text = .
+ *(.text)
+ .text          0x0000000000000000       0x10 init.o
+                0x0000000000000000                _start
+ .text          0x0000000000000010      0xa5c qsort_main.o
+                0x0000000000000644                sort
+                0x00000000000009f4                main
+ .text          0x0000000000000a6c       0x8c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+                0x0000000000000a6c                __eqdf2
+                0x0000000000000a6c                __nedf2
+                0x0000000000001000                . = 0x1000
+ *fill*         0x0000000000000af8      0x508 
+ *(.strings)
+                0x0000000000001000                _etext = .
+
+.rela.dyn       0x0000000000001000        0x0
+ .rela.text     0x0000000000001000        0x0 init.o
+
+.data           0x0000000000001000     0x4000
+ *(.data)
+ .data          0x0000000000001000        0x0 init.o
+ .data          0x0000000000001000     0x4000 qsort_main.o
+                0x0000000000001000                input_data
+                0x0000000000003000                verify_data
+ .data          0x0000000000005000        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.tbss           0x0000000000005000        0x4
+ .tbss          0x0000000000005000        0x4 qsort_main.o
+
+.bss            0x0000000000005000        0x8
+ *(.bss)
+ .bss           0x0000000000005000        0x0 init.o
+ .bss           0x0000000000005000        0x8 qsort_main.o
+ .bss           0x0000000000005008        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+LOAD init.o
+LOAD qsort_main.o
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libm.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
+OUTPUT(qsort_main elf32-littleriscv)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 qsort_main.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_frame    0x0000000000000000       0x20
+ .debug_frame   0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_info     0x0000000000000000      0x28d
+ .debug_info    0x0000000000000000      0x28d /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_abbrev   0x0000000000000000      0x197
+ .debug_abbrev  0x0000000000000000      0x197 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_loc      0x0000000000000000       0x9a
+ .debug_loc     0x0000000000000000       0x9a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_ranges   0x0000000000000000       0x48
+ .debug_ranges  0x0000000000000000       0x48 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_line     0x0000000000000000      0x22e
+ .debug_line    0x0000000000000000      0x22e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+
+.debug_str      0x0000000000000000      0x1cd
+ .debug_str     0x0000000000000000      0x1cd /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(eqdf2.o)
+                                        0x201 (size before relaxing)
