@@ -104,4 +104,11 @@ module top (led);
 		);
 
 	assign clk_proc = (data_clk_stall) ? 1'b1 : clk;
+
+//	initial begin
+//		$dumpfile ("whole_cpu.vcd");
+//		$dumpvars;
+//		#500;
+//		$stop;
+//	end
 endmodule

@@ -10,7 +10,7 @@ INIT		= init
 INIT-SF		= init-sf
 
 OPTFLAGS	= -O0
-CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall
+CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall# -S -fverbose-asm
 ASFLAGS		= --march=rv32i --mabi=ilp32
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld
 LDFLAGS-SF	= -Ttext $(LOADADDR-SF)  -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map

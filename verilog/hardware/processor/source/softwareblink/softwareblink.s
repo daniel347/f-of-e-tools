@@ -4,7 +4,7 @@
 #	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version none
 # GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 # options passed:  -imultilib rv32i/ilp32
-# -iprefix /home/students/ds909/f-of-e-tools/tools/sunflower/sunflower-toolchain/tools/riscv/bin/../lib/gcc/riscv32-elf/8.2.0/
+# -iprefix /data/f-of-e-tools/tools/sunflower/sunflower-toolchain/tools/riscv/bin/../lib/gcc/riscv32-elf/8.2.0/
 # -D M32 softwareblink.c -march=rv32i -mabi=ilp32 -O0 -Wall -fverbose-asm
 # options enabled:  -faggressive-loop-optimizations -fauto-inc-dec
 # -fchkp-check-incomplete-type -fchkp-check-read -fchkp-check-write
@@ -31,6 +31,13 @@
 # -fzero-initialized-in-bss -mexplicit-relocs -mplt -mstrict-align
 
 	.text
+	.globl	kSpinDelay
+	.section	.srodata,"a"
+	.align	2
+	.type	kSpinDelay, @object
+	.size	kSpinDelay, 4
+kSpinDelay:
+	.word	400000
 	.globl	gDebugLedsMemoryMappedRegister
 	.section	.sdata,"aw"
 	.align	2
@@ -43,27 +50,28 @@ gDebugLedsMemoryMappedRegister:
 	.globl	main
 	.type	main, @function
 main:
-	addi	sp,sp,-16	#,,
-	sw	s0,12(sp)	#,
-	addi	s0,sp,16	#,,
-# softwareblink.c:6: 	*gDebugLedsMemoryMappedRegister = 0x00;
-	lui	a5,%hi(gDebugLedsMemoryMappedRegister)	# tmp76,
+	addi	sp,sp,-32	#,,
+	sw	s0,28(sp)	#,
+	addi	s0,sp,32	#,,
+# softwareblink.c:22: 	i = 432;
+	li	a5,432		# tmp75,
+	sw	a5,-20(s0)	# tmp75, i
+# softwareblink.c:23: 	if (i == 432) {
+	lw	a4,-20(s0)		# tmp76, i
+	li	a5,432		# tmp77,
+	bne	a4,a5,.L2	#, tmp76, tmp77,
+# softwareblink.c:24: 		*gDebugLedsMemoryMappedRegister = 0xFF;
+	lui	a5,%hi(gDebugLedsMemoryMappedRegister)	# tmp78,
 	lw	a5,%lo(gDebugLedsMemoryMappedRegister)(a5)		# gDebugLedsMemoryMappedRegister.0_1, gDebugLedsMemoryMappedRegister
-# softwareblink.c:6: 	*gDebugLedsMemoryMappedRegister = 0x00;
-	sw	zero,0(a5)	#, *gDebugLedsMemoryMappedRegister.0_1
+# softwareblink.c:24: 		*gDebugLedsMemoryMappedRegister = 0xFF;
+	li	a4,255		# tmp79,
+	sw	a4,0(a5)	# tmp79, *gDebugLedsMemoryMappedRegister.0_1
 .L2:
-# softwareblink.c:17: 		*gDebugLedsMemoryMappedRegister = 0xFF;
-	lui	a5,%hi(gDebugLedsMemoryMappedRegister)	# tmp77,
-	lw	a5,%lo(gDebugLedsMemoryMappedRegister)(a5)		# gDebugLedsMemoryMappedRegister.1_2, gDebugLedsMemoryMappedRegister
-# softwareblink.c:17: 		*gDebugLedsMemoryMappedRegister = 0xFF;
-	li	a4,255		# tmp78,
-	sw	a4,0(a5)	# tmp78, *gDebugLedsMemoryMappedRegister.1_2
-# softwareblink.c:21: 		*gDebugLedsMemoryMappedRegister = 0x00;
-	lui	a5,%hi(gDebugLedsMemoryMappedRegister)	# tmp79,
-	lw	a5,%lo(gDebugLedsMemoryMappedRegister)(a5)		# gDebugLedsMemoryMappedRegister.2_3, gDebugLedsMemoryMappedRegister
-# softwareblink.c:21: 		*gDebugLedsMemoryMappedRegister = 0x00;
-	sw	zero,0(a5)	#, *gDebugLedsMemoryMappedRegister.2_3
-# softwareblink.c:17: 		*gDebugLedsMemoryMappedRegister = 0xFF;
-	j	.L2		#
+	li	a5,0		# _6,
+# softwareblink.c:40: }
+	mv	a0,a5	#, <retval>
+	lw	s0,28(sp)		#,
+	addi	sp,sp,32	#,,
+	jr	ra		#
 	.size	main, .-main
 	.ident	"GCC: (GNU) 8.2.0"

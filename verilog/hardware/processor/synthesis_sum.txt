@@ -40,16 +40,16 @@
 
 === alu ===
 
-   Number of wires:                675
-   Number of wire bits:            867
-   Number of public wires:         675
-   Number of public wire bits:     867
+   Number of wires:                680
+   Number of wire bits:            872
+   Number of public wires:         680
+   Number of public wire bits:     872
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                792
+   Number of cells:                797
      SB_CARRY                       95
-     SB_LUT4                       697
+     SB_LUT4                       702
 
 === branch_decision ===
 
@@ -133,18 +133,18 @@
 
 === data_mem ===
 
-   Number of wires:                175
-   Number of wire bits:            842
-   Number of public wires:         175
-   Number of public wire bits:     842
+   Number of wires:                137
+   Number of wire bits:            691
+   Number of public wires:         137
+   Number of public wire bits:     691
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                331
-     SB_DFFE                        73
-     SB_DFFNE                       49
-     SB_LUT4                       201
-     SB_RAM40_4K                     8
+   Number of cells:                260
+     SB_DFF                         49
+     SB_DFFE                        40
+     SB_LUT4                       163
+     SB_RAM40_4KNR                   8
 
 === ex_mem ===
 
@@ -308,20 +308,20 @@
      data_mem                        1
      instruction_memory              1
 
-   Number of wires:               5439
-   Number of wire bits:         139473
-   Number of public wires:        5439
-   Number of public wire bits:  139473
+   Number of wires:               5406
+   Number of wire bits:         139327
+   Number of public wires:        5406
+   Number of public wire bits:  139327
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               3054
+   Number of cells:               2988
      SB_CARRY                      188
-     SB_DFF                        594
-     SB_DFFE                        75
+     SB_DFF                        643
+     SB_DFFE                        42
      SB_DFFN                         1
-     SB_DFFNE                       49
      SB_HFOSC                        1
-     SB_LUT4                      2126
-     SB_RAM40_4K                    20
+     SB_LUT4                      2093
+     SB_RAM40_4K                    12
+     SB_RAM40_4KNR                   8
 
